@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.textArea {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.container img {
+  min-height: 100%;
+  min-width: 1470px;
+
+  width: 100%;
+  height: auto;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .container img {
+    left: 50%;
+    margin-left: -735px; /* 50% */
+    top: 30%;
+    margin-top: -400px; /* 50% */
+  }
+}

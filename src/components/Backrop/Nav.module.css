@@ -1,0 +1,17 @@
+.list {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  z-index: 21;
+}
+
+.listItem{
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+}
+
+.highlighted {
+  font-weight: bold;
+}
+

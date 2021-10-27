@@ -1,0 +1,35 @@
+.textArea {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  transform: translate(-47.5%, 2%);
+
+  height: 941px;
+  width: 670px;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  color: rgba(255, 255, 255, 0.911);
+  letter-spacing: 1.6px;
+
+  overflow: hidden;
+}
+
+.textArea h1 {
+  font-size: 4rem;
+  text-align: center;
+  padding: 2.5rem;
+
+  border: 1px solid white;
+
+  margin: 1rem 1rem 3rem 1rem;
+}
+
+.text{
+  font-size: 2rem;
+
+  padding: 2rem;
+  text-align: center;
+  
+  line-height: 45px;
+}

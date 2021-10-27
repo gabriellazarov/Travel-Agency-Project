@@ -7,7 +7,7 @@ const BlackSpace = (props) => {
   const shownLetter = currentTitle[0];
 
   return (
-    <div className={classes.bg}>
+    <div className={classes.bg} onClick={props.clickHandler}>
       <div className={classes.bigBox}></div>
       <div className={classes.bigLetter}>{shownLetter}</div>
     </div>

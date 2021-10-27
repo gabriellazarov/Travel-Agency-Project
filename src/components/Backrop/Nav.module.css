@@ -3,6 +3,8 @@
   top: 50%;
   bottom: 50%;
   z-index: 21;
+  
+  list-style-type: none;
 }
 
 .listItem{

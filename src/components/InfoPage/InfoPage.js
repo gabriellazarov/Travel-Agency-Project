@@ -11,7 +11,7 @@ const InfoPage = (props) => {
       {!props.modalIsVisible && (
         <>
           <Button
-            text="< Return"
+            text=" <"
             clickHandler={props.clickHandler}
             classes={classes.button}
           />

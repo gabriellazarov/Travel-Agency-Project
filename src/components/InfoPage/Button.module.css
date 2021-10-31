@@ -12,10 +12,13 @@
   cursor: pointer;
   text-align: center;
 
-  border-radius: 50%;
+  border-radius: 20%;
+  transition: all 0.1s ease-in-out;
 }
 
 .button:hover{
   background: rgba(37, 37, 37, 0.788);
   color: rgba(248, 247, 247, 0.979);
+  
+  border-radius: 50%;
 }

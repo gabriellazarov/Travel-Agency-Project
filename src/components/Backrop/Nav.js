@@ -20,7 +20,7 @@ const Nav = (props) => {
     transformedList.push(
       <li
         key={title}
-        className={title === currentTitle ? classes.highlighted : ''}
+        className={title === currentTitle ? classes.highlighted : classes.hoverable}
       >
         <Link to={`/${title}`} className={classes.listItem}>
           {title}

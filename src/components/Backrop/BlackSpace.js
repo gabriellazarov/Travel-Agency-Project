@@ -8,7 +8,7 @@ const BlackSpace = (props) => {
 
   return (
     <div className={classes.bg} onClick={props.clickHandler}>
-      <div className={classes.bigBox}></div>
+      <img src="TransparentModal.png" className={classes.bigBox}/>
       <div className={classes.bigLetter}>{shownLetter}</div>
     </div>
   );

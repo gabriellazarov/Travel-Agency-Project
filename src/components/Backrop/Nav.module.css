@@ -7,10 +7,17 @@
   list-style-type: none;
 }
 
-.listItem{
+.listItem {
   text-decoration: none;
   color: white;
   font-size: 2rem;
+}
+
+.hoverable {
+  transition: transform 0.2s ease-in-out;
+}
+.hoverable:hover {
+  transform: translate(7px);
 }
 
 .highlighted {
@@ -23,4 +30,3 @@
 
   padding-left: 3px;
 }
-

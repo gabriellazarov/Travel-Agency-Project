@@ -1,12 +1,12 @@
 .list {
   position: absolute;
-  z-index: 21;
+  z-index: 22;
 
   letter-spacing: 1.3px;
   text-align: left;
   list-style-type: none;
 
-  transition-duration: 0.3s;
+  transition-duration: 0.45s;
 
 }
 

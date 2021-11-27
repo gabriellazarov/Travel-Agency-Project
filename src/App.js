@@ -53,7 +53,7 @@ function App() {
             currentTitle={currentTitle}
             changeTitleHandler={changeCurrentTitle}
           />
-          <BlackSpace clickHandler={removeModal} titleLetter={currentTitle.title[0]} />
+          <BlackSpace clickHandler={removeModal} titleLetter={currentTitle.title} />
         </>
       )}
       <InfoPage

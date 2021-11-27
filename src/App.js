@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import BlackSpace from './components/Backrop/BlackSpace';
 
-import FullModal from './components/Backrop/FullModal';
+import Nav from './components/Backrop/Nav';
 import InfoPage from './components/InfoPage/InfoPage';
-
 
 function App() {
   const [modalIsVisible, setModalIsVisible] = useState(true);
   const [titleData, setTitleData] = useState([]);
+  const [currentTitle, setCurrentTitle] = useState({});
 
   useEffect(() => {
     async function setdata() {
@@ -26,6 +26,7 @@ function App() {
       }
 
       setTitleData(titles);
+      setCurrentTitle(titles[0]);
     }
     setdata();
   }, []);
@@ -37,26 +38,30 @@ function App() {
     setModalIsVisible(true);
   };
 
+  const changeCurrentTitle = (title) => {
+    setCurrentTitle(titleData.find((a) => a.title === title));
+  };
+
   const titles = titleData.map((el) => el.title);
 
   return (
-    <Switch>
-      {titles.map((title) => (
-        <Route path={`/${title}`} key={title} exact>
-          {modalIsVisible && (
-            <FullModal titles={titles} clickHandler={removeModal} />
-          )}
-          <InfoPage
-            data={titleData.find((page) => page.title === title)}
-            clickHandler={returnToModal}
-            modalIsVisible={modalIsVisible}
+    <>
+      {modalIsVisible && (
+        <>
+          <Nav
+            titles={titles}
+            currentTitle={currentTitle}
+            changeTitleHandler={changeCurrentTitle}
           />
-        </Route>
-      ))}
-      <Route path="*">
-        <Redirect to={`/${titles[0]}`} />
-      </Route>
-    </Switch>
+          <BlackSpace clickHandler={removeModal} titleLetter={currentTitle.title[0]} />
+        </>
+      )}
+      <InfoPage
+        data={currentTitle}
+        clickHandler={returnToModal}
+        modalIsVisible={modalIsVisible}
+      />
+    </>
   );
 }
 

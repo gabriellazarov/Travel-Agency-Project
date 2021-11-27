@@ -5,8 +5,7 @@ import classes from './Nav.module.css';
 const Nav = (props) => {
   const titles = props.titles;
 
-  const currentTitle =
-    window.location.href.split('/')[window.location.href.split('/').length - 1];
+  const currentTitle = props.currentTitle.title;
 
   const listPosition = {
     top: `${47.5 - titles.indexOf(currentTitle) * 4.1}%`,
@@ -17,14 +16,20 @@ const Nav = (props) => {
   for (let i = 0; i < titles.length; i++) {
     const title = titles[i];
 
+    const changeTitle = () => {
+      props.changeTitleHandler(title);
+    };
+
     transformedList.push(
       <li
         key={title}
-        className={title === currentTitle ? classes.highlighted : classes.hoverable}
+        className={
+          title === currentTitle ? classes.highlighted : classes.hoverable
+        }
       >
-        <Link to={`/${title}`} className={classes.listItem}>
+        <span className={classes.listItem} onClick={changeTitle}>
           {title}
-        </Link>
+        </span>
       </li>
     );
   }

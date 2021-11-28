@@ -7,11 +7,43 @@
 
   text-decoration: none;
   font-size: 3rem;
-  
+
   line-height: 1;
   cursor: pointer;
   text-align: center;
 
   border-radius: 20%;
   transition: all 0.1s ease-in-out;
+}
+
+.MyClassEnterActive {
+  animation: showButton 900ms ease-in-out;
+}
+.MyClassEnterDone {
+}
+
+.MyClassExit {
+  animation: hideButton 900ms ease-in-out;
+}
+.MyClassExitActive {
+}
+
+@keyframes showButton {
+  0% {
+    left: -20%;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideButton {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    left: -20%;
+    opacity: 0;
+  }
 }

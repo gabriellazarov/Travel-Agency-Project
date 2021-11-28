@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-
+import { CSSTransition } from 'react-transition-group';
 import classes from './Nav.module.css';
 
 const Nav = (props) => {
@@ -35,9 +34,22 @@ const Nav = (props) => {
   }
 
   return (
-    <ul style={listPosition} className={classes.list}>
-      {transformedList}
-    </ul>
+    <CSSTransition
+      mountOnEnter
+      unmountOnExit
+      in={props.show}
+      timeout={500}
+      classNames={{
+        enterActive: classes.MyClassEnterActive,
+        enterDone: classes.MyClassEnterDone,
+        exitActive: classes.MyClassExit,
+        exitDone: classes.MyClassExitActive,
+      }}
+    >
+      <ul style={listPosition} className={classes.list}>
+        {transformedList}
+      </ul>
+    </CSSTransition>
   );
 };
 

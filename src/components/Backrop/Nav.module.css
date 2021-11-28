@@ -34,3 +34,37 @@
 
   padding-left: 3px;
 }
+
+.MyClassEnterActive {
+  left: -20%;
+}
+.MyClassEnterDone {
+  animation: showNav 0.4s ease-out forwards;
+}
+
+.MyClassExit {
+  animation: hideNav 0.5s ease-out forwards;
+}
+.MyClassExitActive {
+}
+
+
+@keyframes showNav {
+  0% {
+    opacity: 0;
+    transform: translate(-200px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideNav {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-250px);
+  }
+}

@@ -46,16 +46,17 @@ function App() {
 
   return (
     <>
-      {modalIsVisible && (
-        <>
-          <Nav
-            titles={titles}
-            currentTitle={currentTitle}
-            changeTitleHandler={changeCurrentTitle}
-          />
-          <BlackSpace clickHandler={removeModal} titleLetter={currentTitle.title} />
-        </>
-      )}
+      <Nav
+        show={modalIsVisible}
+        titles={titles}
+        currentTitle={currentTitle}
+        changeTitleHandler={changeCurrentTitle}
+      />
+      <BlackSpace
+        show={modalIsVisible}
+        clickHandler={removeModal}
+        titleLetter={currentTitle.title}
+      />
       <InfoPage
         data={currentTitle}
         clickHandler={returnToModal}

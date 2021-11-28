@@ -26,3 +26,67 @@
 
   margin: auto;
 }
+
+.MyClassEnterActive img {
+  animation: openModal 700ms ease-out forwards;
+}
+.MyClassEnterActive .bigLetter {
+  animation: barrelRoll 700ms ease-out forwards;
+}
+
+.MyClassEnterDone {
+}
+
+.MyClassExit img {
+  animation: closeModal 500ms ease-out forwards;
+}
+.MyClassExit .bigLetter {
+  animation: reverseRoll 500ms ease-out forwards;
+}
+
+.MyClassExitActive {
+}
+
+@keyframes openModal {
+  0% {
+    transform: scale(5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0.9;
+  }
+}
+
+@keyframes barrelRoll {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, 20%) rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes reverseRoll {
+  0% {
+    transform: translate(0px, 20%) rotate(-360deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+    opacity: 0;
+  }
+}

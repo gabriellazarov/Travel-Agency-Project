@@ -8,16 +8,14 @@ const InfoPage = (props) => {
   return (
     <div className={classes.container}>
       <img src={data.imgURL} alt="a beautiful tourist spot" />
-      {!props.modalIsVisible && (
-        <>
-          <Button
-            text=" <"
-            clickHandler={props.clickHandler}
-            classes={classes.button}
-          />
-          <TextArea data={data} />
-        </>
-      )}
+
+      <Button
+        show={!props.modalIsVisible}
+        text=" <"
+        clickHandler={props.clickHandler}
+        classes={classes.button}
+      />
+      <TextArea data={data} show={!props.modalIsVisible} />
     </div>
   );
 };

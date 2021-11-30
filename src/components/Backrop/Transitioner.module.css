@@ -1,0 +1,50 @@
+.circle {
+  margin: auto;
+
+  position: fixed;
+  z-index: 21;
+
+  left: 8.35%;
+  right: 50%;
+  bottom: 50%;
+  top: 50%;
+
+  border: 520px solid #0b0b0b;
+  border-radius: 50%;
+}
+
+.MyClassEnterActive {
+  animation: openModal 1000ms ease-out forwards;
+}
+
+.MyClassEnterDone {
+}
+
+.MyClassExit {
+  animation: closeModal 400ms ease-out forwards;
+}
+
+.MyClassExitActive {
+}
+
+@keyframes openModal {
+  0% {
+    width: 1560px;
+    height: 1560px;
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 1560px;
+    height: 1560px;
+  }
+}

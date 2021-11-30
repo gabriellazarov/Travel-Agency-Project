@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import BlackSpace from './components/Backrop/BlackSpace';
+import Transitioner from './components/Backrop/Transitioner';
 
 import Nav from './components/Backrop/Nav';
 import InfoPage from './components/InfoPage/InfoPage';
@@ -8,6 +9,7 @@ function App() {
   const [modalIsVisible, setModalIsVisible] = useState(true);
   const [titleData, setTitleData] = useState([]);
   const [currentTitle, setCurrentTitle] = useState({});
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     async function setdata() {
@@ -31,6 +33,17 @@ function App() {
     setdata();
   }, []);
 
+  //2 states to control transition animation
+  useEffect(() => {
+    if (isTransitioning != false) {
+      const timer = setTimeout(() => {
+        setCurrentTitle(isTransitioning);
+        setIsTransitioning(false);
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
+
   const removeModal = () => {
     setModalIsVisible(false);
   };
@@ -39,7 +52,7 @@ function App() {
   };
 
   const changeCurrentTitle = (title) => {
-    setCurrentTitle(titleData.find((a) => a.title === title));
+    setIsTransitioning(titleData.find((a) => a.title === title));
   };
 
   const titles = titleData.map((el) => el.title);
@@ -49,9 +62,10 @@ function App() {
       <Nav
         show={modalIsVisible}
         titles={titles}
-        currentTitle={currentTitle}
+        currentTitle={isTransitioning || currentTitle}
         changeTitleHandler={changeCurrentTitle}
       />
+      <Transitioner show={isTransitioning} />
       <BlackSpace
         show={modalIsVisible}
         clickHandler={removeModal}

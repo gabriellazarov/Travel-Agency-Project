@@ -52,7 +52,9 @@ function App() {
   };
 
   const changeCurrentTitle = (title) => {
-    setIsTransitioning(titleData.find((a) => a.title === title));
+    if (currentTitle.title != title) {
+      setIsTransitioning(titleData.find((a) => a.title === title));
+    }
   };
 
   const titles = titleData.map((el) => el.title);

@@ -2,14 +2,6 @@ import classes from './Transitioner.module.css';
 import { CSSTransition } from 'react-transition-group';
 
 const Transitioner = (props) => {
-  const image = (
-    <img
-      src="TransparentModal.png"
-      className={classes.circle}
-      alt="we tried /shrug"
-    />
-  );
-
   return (
     <CSSTransition
       mountOnEnter

@@ -1,6 +1,7 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Introduction from './pages/Introduction';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       </Route>
       <Route path={'/introduction'} exact>
         <Introduction />
+      </Route>
+      <Route path={'/home'} exact>
+        <Home />
       </Route>
     </Switch>
   );

@@ -5,7 +5,7 @@ import Transitioner from '../components/IntroductionComponents/Backrop/Transitio
 import Nav from '../components/IntroductionComponents/Backrop/Nav';
 import InfoPage from '../components/IntroductionComponents/InfoPage/InfoPage';
 
-function Introduction() {
+const Introduction = () => {
   const [modalIsVisible, setModalIsVisible] = useState(true);
   const [titleData, setTitleData] = useState([]);
   const [currentTitle, setCurrentTitle] = useState({});
@@ -80,6 +80,6 @@ function Introduction() {
       />
     </>
   );
-}
+};
 
 export default Introduction;

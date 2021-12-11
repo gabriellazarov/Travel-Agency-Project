@@ -4,6 +4,10 @@ import Transitioner from '../components/IntroductionComponents/Backrop/Transitio
 
 import Nav from '../components/IntroductionComponents/Backrop/Nav';
 import InfoPage from '../components/IntroductionComponents/InfoPage/InfoPage';
+import Button from '../components/SharedComponents/Button';
+
+import classes from './Introduction.module.css';
+import { Link } from 'react-router-dom';
 
 const Introduction = () => {
   const [modalIsVisible, setModalIsVisible] = useState(true);
@@ -59,6 +63,13 @@ const Introduction = () => {
 
   const titles = titleData.map((el) => el.title);
 
+  const buttonAnimationClasses = {
+    enterActive: classes.MyClassEnterActive,
+    enterDone: classes.MyClassEnterDone,
+    exitActive: classes.MyClassExit,
+    exitDone: classes.MyClassExitActive,
+  };
+
   return (
     <>
       <Nav
@@ -73,6 +84,14 @@ const Introduction = () => {
         clickHandler={removeModal}
         titleLetter={currentTitle.title}
       />
+      <Link to={'/offers'}>
+        <Button
+          show={modalIsVisible}
+          text="Senpai🡕"
+          classes={classes.button}
+          animationClasses={buttonAnimationClasses}
+        />
+      </Link>
       <InfoPage
         data={currentTitle}
         clickHandler={returnToModal}

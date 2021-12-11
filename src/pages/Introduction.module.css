@@ -1,19 +1,17 @@
 .button {
-  display: inline-block;
-  border: none;
-  padding: 0.7rem 1.5rem 0.7rem 1.3rem;
-  background: rgba(15, 15, 15, 0.712);
-  color: rgba(248, 247, 247, 0.925);
+  z-index: 22;
+  position: absolute;
+  top: 1%;
+  left: 91.5%;
+  transform: translate(2%, 5%);
+  color: white;
+  background: rgba(59, 59, 59, 0.788);
+  border-radius: 5%;
+  font-size: 25px;
+}
 
-  text-decoration: none;
-  font-size: 3rem;
-
-  line-height: 1;
-  cursor: pointer;
-  text-align: center;
-
-  border-radius: 20%;
-  transition: all 0.1s ease-in-out;
+.button:hover {
+  background: rgba(87, 87, 87, 0.788);
 }
 
 .MyClassEnterActive {
@@ -30,7 +28,7 @@
 
 @keyframes showButton {
   0% {
-    left: -20%;
+    left: 120%;
     opacity: 0;
   }
   100% {
@@ -43,7 +41,7 @@
     opacity: 1;
   }
   100% {
-    left: -20%;
+    left: 120%;
     opacity: 0;
   }
 }

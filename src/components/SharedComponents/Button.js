@@ -8,12 +8,7 @@ const Button = (props) => {
       unmountOnExit
       in={props.show}
       timeout={900}
-      classNames={{
-        enterActive: classes.MyClassEnterActive,
-        enterDone: classes.MyClassEnterDone,
-        exitActive: classes.MyClassExit,
-        exitDone: classes.MyClassExitActive,
-      }}
+      classNames={props.animationClasses}
     >
       <button
         onClick={props.clickHandler}

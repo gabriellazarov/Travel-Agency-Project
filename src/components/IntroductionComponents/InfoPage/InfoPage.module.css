@@ -29,6 +29,38 @@
   border-radius: 50%;
 }
 
+.MyClassEnterActive {
+  animation: showButton 900ms ease-in-out;
+}
+.MyClassEnterDone {
+}
+
+.MyClassExit {
+  animation: hideButton 900ms ease-in-out;
+}
+.MyClassExitActive {
+}
+
+@keyframes showButton {
+  0% {
+    left: -20%;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideButton {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    left: -20%;
+    opacity: 0;
+  }
+}
+
 
 @media screen and (max-width: 1400px) {
   .container img {

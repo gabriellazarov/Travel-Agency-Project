@@ -1,0 +1,19 @@
+.button {
+  display: inline-block;
+  border: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.3rem;
+  background: rgba(15, 15, 15, 0.712);
+  color: rgba(248, 247, 247, 0.925);
+
+  text-decoration: none;
+  font-size: 3rem;
+
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+
+  border-radius: 30%;
+  transition: all 0.1s ease-in-out;
+}
+
+

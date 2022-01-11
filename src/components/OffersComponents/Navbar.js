@@ -10,7 +10,7 @@ const Navbar = () => {
         <li>
           <span>Login</span>
         </li>
-        <li >
+        <li>
           <span>Register</span>
         </li>
       </ul>

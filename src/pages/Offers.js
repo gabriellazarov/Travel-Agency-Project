@@ -1,5 +1,7 @@
+import Navbar from '../components/OffersComponents/Navbar';
+
 const Offers = () => {
-  return;
+  return <Navbar />;
 };
 
 export default Offers;

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import classes from './Navbar.module.css';
 
 const Navbar = () => {
@@ -5,13 +6,19 @@ const Navbar = () => {
     <div className={classes.list}>
       <ul>
         <li>
-          <span>Offers</span>
+          <Link to={'/offers'} style={{ textDecoration: 'none' }}>
+            <span>Offers</span>
+          </Link>
         </li>
         <li>
-          <span>Login</span>
+          <Link to={'/login'} style={{ textDecoration: 'none' }}>
+            <span>Login</span>
+          </Link>
         </li>
         <li>
-          <span>Register</span>
+          <Link to={'/register'} style={{ textDecoration: 'none' }}>
+            <span>Register</span>
+          </Link>
         </li>
       </ul>
     </div>

@@ -22,6 +22,8 @@
   margin-left: -22px;
   padding: 15px;
   padding-left: 65px;
+
+  color: black;
 }
 .list li:hover {
   font-size: 50px;

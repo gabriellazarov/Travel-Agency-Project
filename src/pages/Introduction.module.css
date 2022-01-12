@@ -12,6 +12,7 @@
 
 .button:hover {
   background: rgba(87, 87, 87, 0.788);
+  transform: scale(1.05);
 }
 
 .MyClassEnterActive {

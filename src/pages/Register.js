@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/OffersComponents/Navbar';
 
+import classes from './Auth.module.css';
+
 const Register = () => {
   return (
     <>
       <Navbar />
-      <p>Already have an account?</p>
-      <p>
-        <Link to={'/login'}>
-          <button>Login</button>
-        </Link>
-      </p>
+      <div className={classes.container}>
+        <p>Already have an account?</p>
+        <p>
+          <Link to={'/login'}>
+            <button className={classes.button}>Login</button>
+          </Link>
+        </p>
+      </div>
     </>
   );
 };

@@ -1,0 +1,31 @@
+.container {
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+
+  bottom: 5%;
+}
+
+.button {
+  display: inline-block;
+  border: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.3rem;
+  background: rgba(15, 15, 15, 0.904);
+  color: rgba(248, 247, 247);
+
+  text-decoration: none;
+  font-size: 1.5rem;
+
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+
+  border-radius: 8px;
+  transition: all 0.1s ease-in-out;
+}
+
+.button:hover {
+  background: rgba(15, 15, 15, 0.788);
+}

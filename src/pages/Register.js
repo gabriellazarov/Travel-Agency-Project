@@ -1,22 +1,7 @@
-import { Link } from 'react-router-dom';
-import Navbar from '../components/OffersComponents/Navbar';
-
-import classes from './Auth.module.css';
+import AuthContent from '../components/AuthComponents/AuthContent';
 
 const Register = () => {
-  return (
-    <>
-      <Navbar />
-      <div className={classes.container}>
-        <p>Already have an account?</p>
-        <p>
-          <Link to={'/login'}>
-            <button className={classes.button}>Login</button>
-          </Link>
-        </p>
-      </div>
-    </>
-  );
+  return <AuthContent isLogin={false} />;
 };
 
 export default Register;

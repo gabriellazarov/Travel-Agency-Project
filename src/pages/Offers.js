@@ -1,4 +1,4 @@
-import Navbar from '../components/OffersComponents/Navbar';
+import Navbar from '../components/SharedComponents/Navbar';
 
 const Offers = () => {
   return <Navbar />;

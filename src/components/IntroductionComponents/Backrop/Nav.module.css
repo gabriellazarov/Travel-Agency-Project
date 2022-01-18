@@ -7,7 +7,6 @@
   list-style-type: none;
 
   transition-duration: 0.45s;
-
 }
 
 .listItem {
@@ -21,7 +20,7 @@
   transition: transform 0.2s ease-in-out;
 }
 .hoverable:hover {
-  transform: translate(7px);
+  transform: translate(8px);
 }
 
 .highlighted {
@@ -47,7 +46,6 @@
 }
 .MyClassExitActive {
 }
-
 
 @keyframes showNav {
   0% {

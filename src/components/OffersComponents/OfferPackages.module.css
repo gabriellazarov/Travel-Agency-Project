@@ -1,0 +1,24 @@
+.container {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+
+  width: 69%;
+}
+
+.package {
+  height: 285px;
+  border: 2px solid black;
+  margin: 8px;
+
+  background-size: cover;
+
+  color: white;
+}
+
+.shadow{
+    height: 282px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.438);
+}

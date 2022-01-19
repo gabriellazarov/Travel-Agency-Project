@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className={classes.list}>
       <ul>
-        <li>
+        <li className={classes.firstLiEL}>
           <Link to={'/offers'} style={{ textDecoration: 'none' }}>
             <span>Offers</span>
           </Link>

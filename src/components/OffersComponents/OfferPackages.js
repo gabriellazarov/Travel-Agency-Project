@@ -4,7 +4,7 @@ const DUMMY_PACKAGES = [
   {
     title: 'Basic',
     benefits: ['a', 'b'],
-    img_url: '',
+    img_url: 'https://i.imgur.com/2LkEKNG.png',
   },
   {
     title: 'Premium',
@@ -15,7 +15,7 @@ const DUMMY_PACKAGES = [
     title: 'Deluxe',
     benefits: ['a', 'b'],
     img_url:
-      'https://cdn.pixabay.com/photo/2017/05/11/23/21/mount-fuji-2305606_960_720.jpg',
+      'https://i.imgur.com/3gumQSs.png',
   },
 ];
 

@@ -4,17 +4,17 @@ import classes from './OfferPackages.module.css';
 const DUMMY_PACKAGES = [
   {
     title: 'Basic',
-    benefits: ['a', 'b'],
+    benefits: ['3 star lodging', 'Included breakfast', 'Up to 3 hours a day with tour guide'],
     img_url: 'https://i.imgur.com/2LkEKNG.png',
   },
   {
     title: 'Premium',
-    benefits: ['a', 'b'],
+    benefits: ['4 star lodging', 'Included breakfast and dinner', 'Up to 5 hours a day with tour guide'],
     img_url: 'https://i.imgur.com/3gumQSs.png',
   },
   {
     title: 'Deluxe',
-    benefits: ['a', 'b'],
+    benefits: ['5 star lodging', 'Included breakfast, dinner and room service', 'Up to 8 hours a day with tour guide'],
     img_url: 'https://i.imgur.com/EFJ5153.png',
   },
 ];

@@ -11,13 +11,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to={'/login'} style={{ textDecoration: 'none' }}>
+          <Link to={'/auth'} style={{ textDecoration: 'none' }}>
             <span>Login</span>
-          </Link>
-        </li>
-        <li>
-          <Link to={'/register'} style={{ textDecoration: 'none' }}>
-            <span>Register</span>
           </Link>
         </li>
       </ul>

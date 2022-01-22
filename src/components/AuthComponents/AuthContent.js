@@ -1,33 +1,41 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import Navbar from '../SharedComponents/Navbar';
 
 import classes from './AuthContent.module.css';
 
 const AuthContent = (props) => {
+  const [isLogin, setIsLogin] = useState(true);
+
+  const switchAuthModeHandler = () => {
+    setIsLogin((prevState) => !prevState);
+  };
+
   return (
     <>
       <Navbar />
-      <div className={classes.container}>
-        {props.isLogin ? (
-          <>
-            <p>Don't have an account?</p>
-            <p>
-              <Link to={'/register'}>
-                <button className={classes.button}>Register</button>
-              </Link>
-            </p>
-          </>
-        ) : (
-          <>
-            <p>Already have an account?</p>
-            <p>
-              <Link to={'/login'}>
-                <button className={classes.button}>Login</button>
-              </Link>
-            </p>
-          </>
-        )}
-      </div>
+      <section className={classes.auth}>
+        <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
+        <form>
+          <div className={classes.control}>
+            <label htmlFor="email">Your Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="password">Your Password</label>
+            <input type="password" id="password" required />
+          </div>
+          <div className={classes.actions}>
+            <button>{isLogin ? 'Login' : 'Create Account'}</button>
+            <button
+              type="button"
+              className={classes.toggle}
+              onClick={switchAuthModeHandler}
+            >
+              {isLogin ? 'Create new account' : 'Login with existing account'}
+            </button>
+          </div>
+        </form>
+      </section>
     </>
   );
 };

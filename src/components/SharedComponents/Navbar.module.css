@@ -16,15 +16,9 @@
 
   cursor: pointer;
   font-size: 45px;
-  border: 1px solid black;
-  border-radius: 5px;
   text-align: center;
 
-  transition: 0.15s ease-in-out;
-}
-.list span {
-  color: white;
-  transition: 0.15s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 .firstLiEL {
   margin-left: 350px;
@@ -32,8 +26,5 @@
 }
 
 .list li:hover {
-  background-color: rgb(255, 255, 255);
-}
-.list li:hover span {
-  color: black;
+  box-shadow: inset 2px -3px 0 0 white; 
 }

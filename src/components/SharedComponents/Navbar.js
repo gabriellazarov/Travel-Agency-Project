@@ -6,13 +6,13 @@ const Navbar = () => {
     <div className={classes.list}>
       <ul>
         <li className={classes.firstLiEL}>
-          <Link to={'/offers'} style={{ textDecoration: 'none' }}>
-            <span>Offers</span>
+          <Link to={'/offers'} style={{ textDecoration: 'none', color: 'white' }}>
+            Offers
           </Link>
         </li>
         <li>
-          <Link to={'/auth'} style={{ textDecoration: 'none' }}>
-            <span>Login</span>
+          <Link to={'/auth'} style={{ textDecoration: 'none', color: 'white' }}>
+            Login
           </Link>
         </li>
       </ul>

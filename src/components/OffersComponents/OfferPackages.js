@@ -10,12 +10,12 @@ const DUMMY_PACKAGES = [
   {
     title: 'Premium',
     benefits: ['4 star lodging', 'Included breakfast and dinner', 'Up to 5 hours a day with tour guide'],
-    img_url: 'https://i.imgur.com/3gumQSs.png',
+    img_url: 'https://i.imgur.com/EFJ5153.png',
   },
   {
     title: 'Deluxe',
     benefits: ['5 star lodging', 'Included breakfast, dinner and room service', 'Up to 8 hours a day with tour guide'],
-    img_url: 'https://i.imgur.com/EFJ5153.png',
+    img_url: 'https://i.imgur.com/3gumQSs.png',
   },
 ];
 

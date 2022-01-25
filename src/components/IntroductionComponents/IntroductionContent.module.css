@@ -1,12 +1,14 @@
 .button {
   z-index: 22;
-  position: absolute;
-  top: 1%;
-  left: 91.5%;
-  transform: translate(2%, 5%);
+  position: sticky;
+
+  margin-top: 2vh;
+  margin-right: 1.5vh;
+  left: 200%;
+
   color: white;
   background: rgba(59, 59, 59, 0.788);
-  border-radius: 10px;
+  border-radius: 1vh;
   font-size: 25px;
 }
 

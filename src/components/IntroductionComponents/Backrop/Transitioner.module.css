@@ -8,7 +8,7 @@
   bottom: 50%;
   top: 50%;
 
-  border: 520px solid #0b0b0b;
+  border: 54vh solid #0b0b0b;
   border-radius: 50%;
 }
 
@@ -31,8 +31,8 @@
 
 @keyframes openModal {
   0% {
-    width: 1560px;
-    height: 1560px;
+    width: 161vh;
+    height: 161vh;
     left: 8.35%;
   }
   100% {
@@ -48,10 +48,10 @@
     height: 0px;
     left: 36%;
   }
-  
+
   100% {
-    width: 1560px;
-    height: 1560px;
+    width: 161vh;
+    height: 161vh;
     left: 20%;
     border: 0px solid #0b0b0b;
   }

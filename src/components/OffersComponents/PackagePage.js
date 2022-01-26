@@ -1,6 +1,8 @@
 import { useParams, Redirect } from 'react-router';
 import Navbar from '../SharedComponents/Navbar';
 
+import classes from './PackagePage.module.css';
+
 //this should be in a global store at some point
 const DUMMY_VALID_OFFERS = [
   {
@@ -32,18 +34,17 @@ const DUMMY_VALID_OFFERS = [
   },
 ];
 
+//ADD LOGIC TO NAVIGATE AUTOMATICALLY TO LOGIN/REGISTER PAGE IF A REQUEST IS SENT AND WHEN ONE OF THE OPERATIONS IS DONE NAVIGATE AUTOMATICALLY BACK WITH SAVED INPUTS
 const PackagePage = () => {
   const chosenOffer = useParams().package;
-  if (
-    !DUMMY_VALID_OFFERS.map((offer) => offer.title).includes(chosenOffer)
-  ) {
+  if (!DUMMY_VALID_OFFERS.map((offer) => offer.title).includes(chosenOffer)) {
     return <Redirect to={'/introduction'} />;
   }
 
   return (
     <>
       <Navbar />
-      <h1>{chosenOffer} Package</h1>
+      <h1 className={classes.header}>{chosenOffer} Package</h1>
     </>
   );
 };

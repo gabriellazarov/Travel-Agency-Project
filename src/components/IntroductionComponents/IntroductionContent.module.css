@@ -1,10 +1,10 @@
 .button {
   z-index: 22;
-  position: sticky;
+  position: absolute;
 
   margin-top: 2vh;
-  margin-right: 1.5vh;
-  left: 200%;
+
+  left: 91.5%;
 
   color: white;
   background: rgba(59, 59, 59, 0.788);
@@ -46,5 +46,31 @@
   100% {
     left: 120%;
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .button {
+    left: 1%;
+  }
+
+  @keyframes showButton {
+    0% {
+      left: -15%;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hideButton {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      left: -15%;
+      opacity: 0;
+    }
   }
 }

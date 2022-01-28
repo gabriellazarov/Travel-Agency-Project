@@ -15,7 +15,7 @@ body {
 
 /*scrollbar*/
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1vh;
 }
 
 ::-webkit-scrollbar-track {

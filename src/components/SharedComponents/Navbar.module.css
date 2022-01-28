@@ -21,9 +21,11 @@
 
   margin-top: 0.3vh;
   margin-bottom: -0.1vh;
+
+  color: white;
 }
-.firstLiEL {
-  margin-left: 35vh;
+.offersLink {
+  margin-left: 30vh;
   margin-right: 40%;
 }
 

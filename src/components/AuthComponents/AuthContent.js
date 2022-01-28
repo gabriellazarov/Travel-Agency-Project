@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
+import AuthContext from '../../store/auth-context';
 import Navbar from '../SharedComponents/Navbar';
 
 import classes from './AuthContent.module.css';
@@ -12,6 +13,8 @@ const AuthContent = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+
+  const authCtx = useContext(AuthContext);
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -59,7 +62,11 @@ const AuthContent = () => {
         }
       })
       .then((data) => {
-        //authCtx.login(data.idToken);
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+
+        authCtx.login(data.idToken, expirationTime.toISOString());
         history.replace('/offers');
       })
       .catch((err) => {

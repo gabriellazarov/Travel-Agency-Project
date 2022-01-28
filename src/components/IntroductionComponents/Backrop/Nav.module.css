@@ -7,6 +7,7 @@
   list-style-type: none;
 
   transition-duration: 0.45s;
+  text-align: center;
 }
 
 .listItem {
@@ -64,5 +65,30 @@
   100% {
     opacity: 0;
     transform: translate(-250px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .listItem {
+    font-size: 1rem;
+  }
+
+  .highlighted {
+    min-width: 60px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    left: -5%;
+    margin-top: -7%;
+  }
+
+  .listItem {
+    font-size: 0.8rem;
+  }
+
+  .highlighted {
+    min-width: 50px;
   }
 }

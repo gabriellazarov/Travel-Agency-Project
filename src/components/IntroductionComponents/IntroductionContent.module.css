@@ -7,6 +7,7 @@
   left: 91.5%;
 
   color: white;
+  
   background: rgba(59, 59, 59, 0.788);
   border-radius: 1vh;
   font-size: 25px;
@@ -52,6 +53,7 @@
 @media screen and (max-width: 1800px) {
   .button {
     left: 1%;
+    font-size: 4vh;
   }
 
   @keyframes showButton {

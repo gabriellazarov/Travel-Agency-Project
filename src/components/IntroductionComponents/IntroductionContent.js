@@ -23,7 +23,7 @@ const IntroductionContent = () => {
       const data = await response.json();
 
       const titles = [];
-      for (let key in data) {
+      for (const key in data) {
         titles.push({
           description: data[key].description,
           imgURL: data[key].imgURL,

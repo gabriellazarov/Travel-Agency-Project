@@ -17,15 +17,15 @@
 
 .button {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   transform: translate(2%, 5%);
 }
 
-.button:hover{
+.button:hover {
   background: rgba(37, 37, 37, 0.788);
   color: rgba(248, 247, 247, 0.979);
-  
+
   border-radius: 50%;
 }
 
@@ -60,7 +60,6 @@
     opacity: 0;
   }
 }
-
 
 @media screen and (max-width: 1400px) {
   .container img {

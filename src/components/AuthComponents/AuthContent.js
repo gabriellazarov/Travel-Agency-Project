@@ -66,7 +66,7 @@ const AuthContent = () => {
           new Date().getTime() + +data.expiresIn * 1000
         );
 
-        authCtx.login(data.idToken, expirationTime.toISOString());
+        authCtx.login(data.idToken, data.email, expirationTime.toISOString());
         history.replace('/offers');
       })
       .catch((err) => {

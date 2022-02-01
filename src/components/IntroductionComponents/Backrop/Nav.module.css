@@ -80,7 +80,7 @@
 
 @media screen and (max-width: 600px) {
   .list {
-    left: -5%;
+    margin-left: -3%;
     margin-top: -7%;
   }
 
@@ -91,4 +91,5 @@
   .highlighted {
     min-width: 50px;
   }
+
 }

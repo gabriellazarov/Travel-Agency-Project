@@ -15,7 +15,7 @@
 }
 
 .textArea:hover {
-  overflow-y: auto;
+  overflow-y: overlay;
 }
 
 .textArea h1 {

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useParams, Redirect } from 'react-router';
 import Navbar from '../SharedComponents/Navbar';
 
@@ -36,7 +37,10 @@ const DUMMY_VALID_OFFERS = [
 
 //ADD LOGIC TO NAVIGATE AUTOMATICALLY TO LOGIN/REGISTER PAGE IF A REQUEST IS SENT AND WHEN ONE OF THE OPERATIONS IS DONE NAVIGATE AUTOMATICALLY BACK WITH SAVED INPUTS
 const PackagePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const chosenOffer = useParams().package;
+
   if (!DUMMY_VALID_OFFERS.map((offer) => offer.title).includes(chosenOffer)) {
     return <Redirect to={'/introduction'} />;
   }
@@ -45,6 +49,27 @@ const PackagePage = () => {
     <>
       <Navbar />
       <h1 className={classes.header}>{chosenOffer} Package</h1>
+
+      <section>
+        <form>
+          <div>
+            <label htmlFor="startingDate">Choose a Starting Date</label>
+            <input type="date" id="startingDate" required />
+          </div>
+          <div>
+            <label htmlFor="location">Location</label>
+            <select id="location" required>
+              <option value="tokyo">Tokyo</option>
+              <option value="kyoto">Kyoto</option>
+              <option value="osaka">Osaka</option>
+              <option value="okinawa">Okinawa</option>
+            </select>
+          </div>
+          <div className={classes.actions}>
+            {isLoading ? <p>Sending request...</p> : <button>Book</button>}
+          </div>
+        </form>
+      </section>
     </>
   );
 };

@@ -1,7 +1,13 @@
 import AuthContent from '../components/AuthComponents/AuthContent';
+import Navbar from '../components/SharedComponents/Navbar';
 
 const Auth = () => {
-  return <AuthContent />;
+  return (
+    <>
+      <Navbar />
+      <AuthContent />
+    </>
+  );
 };
 
 export default Auth;

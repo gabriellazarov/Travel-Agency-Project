@@ -1,7 +1,6 @@
 import { useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import AuthContext from '../../store/auth-context';
-import Navbar from '../SharedComponents/Navbar';
 
 import classes from './AuthContent.module.css';
 
@@ -76,7 +75,6 @@ const AuthContent = () => {
 
   return (
     <>
-      <Navbar />
       <section className={classes.auth}>
         <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
         <form onSubmit={submitHandler}>

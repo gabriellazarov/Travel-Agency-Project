@@ -9,35 +9,26 @@ const Navbar = () => {
   return (
     <div className={classes.list}>
       <ul>
-        <li className={classes.offersLink}>
-          <Link
-            to={'/offers'}
-            style={{ textDecoration: 'none', color: 'white' }}
-          >
-            Offers
-          </Link>
-        </li>
+        <Link to={'/introduction'}>
+          <li>
+            <img src={'/logo.png'} alt="rip" className={classes.logo} />
+            先輩
+          </li>
+        </Link>
+        <Link to={'/offers'}>
+          <li className={classes.offersLink}>Offers</li>
+        </Link>
         {authCtx.isLoggedIn ? (
           <>
-            <li>
-              <Link
-                to={'/profile'}
-                style={{ textDecoration: 'none', color: 'white' }}
-              >
-                Profile
-              </Link>
-            </li>
+            <Link to={'/profile'}>
+              <li>Profile</li>
+            </Link>
             <li onClick={authCtx.logout}>Logout</li>
           </>
         ) : (
-          <li>
-            <Link
-              to={'/auth'}
-              style={{ textDecoration: 'none', color: 'white' }}
-            >
-              Login
-            </Link>
-          </li>
+          <Link to={'/auth'}>
+            <li>Login</li>{' '}
+          </Link>
         )}
       </ul>
     </div>

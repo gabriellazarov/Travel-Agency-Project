@@ -4,8 +4,11 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 20;
+  z-index: 21;
+
+  cursor: pointer;
 }
+
 .bigLetter {
   width: 100%;
   height: 100%;
@@ -17,8 +20,8 @@
   color: rgba(11, 11, 11, 0.95);
 
   transform: translate(0px, 20%);
-
-  cursor: default;
+  
+  cursor: pointer;
 }
 
 .bigBox {

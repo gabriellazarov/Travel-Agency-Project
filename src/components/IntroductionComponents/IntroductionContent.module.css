@@ -7,7 +7,7 @@
   left: 91.5%;
 
   color: white;
-  
+
   background: rgba(59, 59, 59, 0.788);
   border-radius: 1vh;
   font-size: 25px;
@@ -16,6 +16,13 @@
 .button:hover {
   background: rgba(87, 87, 87, 0.788);
   transform: scale(1.05);
+}
+
+.actionStopper {
+  z-index: 30;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .MyClassEnterActive {

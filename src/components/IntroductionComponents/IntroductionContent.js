@@ -15,6 +15,8 @@ const IntroductionContent = () => {
   const [currentTitle, setCurrentTitle] = useState({});
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const [actionStopper, setActionStopper] = useState(false);
+
   useEffect(() => {
     async function setdata() {
       const response = await fetch(
@@ -58,6 +60,9 @@ const IntroductionContent = () => {
   const changeCurrentTitle = (title) => {
     if (currentTitle.title !== title) {
       setIsTransitioning(titleData.find((a) => a.title === title));
+
+      setActionStopper(true);
+      setTimeout(() => setActionStopper(false), 550);
     }
   };
 
@@ -72,6 +77,7 @@ const IntroductionContent = () => {
 
   return (
     <>
+      {actionStopper && <div className={classes.actionStopper} />}
       <Nav
         show={modalIsVisible}
         titles={titles}
@@ -87,7 +93,7 @@ const IntroductionContent = () => {
       <Link to={'/offers'}>
         <Button
           show={modalIsVisible}
-          text="Senpai🡕"
+          text="Offers🡕"
           classes={classes.button}
           animationClasses={buttonAnimationClasses}
         />

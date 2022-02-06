@@ -8,7 +8,6 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import classes from './PackagePage.module.css';
 import PackageContext from '../../store/offer-context';
 
-
 const getUsefulDate = (date) => {
   if (date === null) return '';
   return date.toString().split(' ').slice(1, 4).join(' ');
@@ -33,12 +32,18 @@ const PackagePage = () => {
     setEndDate(end);
   };
 
-  const chosenOffer = useParams().package;
+  const urlOffer = useParams().package;
   const loadingPackages = packageCtx.packages.length > 0;
 
-  if (loadingPackages && !packageCtx.isValidOffer(chosenOffer)) {
+  if (loadingPackages && !packageCtx.isValidOffer(urlOffer)) {
     return <Redirect to={'/introduction'} />;
   }
+
+  console.log(packageCtx.packages);
+
+  const chosenOffer = packageCtx.packages.find(
+    (offer) => offer.title === urlOffer
+  );
 
   return (
     <>
@@ -46,7 +51,12 @@ const PackagePage = () => {
         <p>Loading...</p>
       ) : (
         <>
-          <h1 className={classes.header}>{chosenOffer} Package</h1>
+          <h1
+            className={classes.header}
+            style={{ backgroundImage: `url(${chosenOffer.img_url})` }}
+          >
+            {chosenOffer.title} Package
+          </h1>
           <section>
             <form>
               <div>
@@ -62,7 +72,7 @@ const PackagePage = () => {
                   maxDate={addDays(new Date(), 365)}
                 />
                 <input
-                  value={
+                  defaultValue={
                     startDate
                       ? `${getUsefulDate(startDate)} - ${getUsefulDate(
                           endDate

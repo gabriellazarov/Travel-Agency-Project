@@ -2,5 +2,12 @@
   font-size: 5vh;
   text-shadow: 0.2vh 0.2vh cyan;
   text-align: center;
-}
 
+  margin-top: -1.8vh;
+  padding-top: 8vh;
+
+  color: white;
+
+  height: 25vh;
+  background-size: cover;
+}

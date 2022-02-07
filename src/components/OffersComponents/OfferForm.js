@@ -4,6 +4,8 @@ import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
+import classes from './OfferForm.module.css';
+
 const getUsefulDate = (date) => {
   if (date === null) return '';
   return date.toString().split(' ').slice(1, 4).join(' ');
@@ -15,7 +17,7 @@ function addDays(date, days) {
   return result;
 }
 
-const OfferForm = () => {
+const OfferForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [startDate, setStartDate] = useState(null);
@@ -44,9 +46,9 @@ const OfferForm = () => {
 
   return (
     <section>
-      <form>
+      <form onSubmit={props.formHandler}>
         <div>
-          <label htmlFor="startingDate">Choose a Date Range</label>
+          Choose a Date Range
           <ReactDatePicker
             selected={startDate}
             selectsRange
@@ -58,7 +60,8 @@ const OfferForm = () => {
             maxDate={addDays(new Date(), 365)}
           />
           <input
-            defaultValue={
+            readOnly
+            value={
               startDate
                 ? `${getUsefulDate(startDate)} - ${getUsefulDate(endDate)}`
                 : ''

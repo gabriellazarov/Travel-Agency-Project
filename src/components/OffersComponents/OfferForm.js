@@ -18,7 +18,6 @@ function addDays(date, days) {
 }
 
 const OfferForm = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -89,7 +88,7 @@ const OfferForm = (props) => {
           </select>
         </div>
         <div>
-          {isLoading ? <p>Sending request...</p> : <button>Book</button>}
+          {props.isLoading ? <p>Sending request...</p> : <button>Book</button>}
         </div>
       </form>
     </section>

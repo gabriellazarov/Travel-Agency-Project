@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useParams, Redirect, useHistory } from 'react-router';
 
 import classes from './PackagePage.module.css';
@@ -9,6 +9,8 @@ import OfferForm from './OfferForm';
 
 //ADD LOGIC TO NAVIGATE AUTOMATICALLY TO LOGIN/REGISTER PAGE IF A REQUEST IS SENT AND WHEN ONE OF THE OPERATIONS IS DONE NAVIGATE AUTOMATICALLY BACK WITH SAVED INPUTS
 const PackagePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const packageCtx = useContext(PackageContext);
   const authCtx = useContext(AuthContext);
 
@@ -27,6 +29,7 @@ const PackagePage = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     if (!authCtx.isLoggedIn) history.push('/auth');
 
@@ -45,7 +48,7 @@ const PackagePage = () => {
           >
             {chosenOffer.title} Package
           </h1>
-          <OfferForm formHandler={submitHandler} />
+          <OfferForm formHandler={submitHandler} isLoading={isLoading} />
         </>
       )}
     </>

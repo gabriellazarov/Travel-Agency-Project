@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { useParams, Redirect, useHistory } from 'react-router';
+import { useParams, Redirect, useHistory, useLocation } from 'react-router';
 
 import classes from './PackagePage.module.css';
 import PackageContext from '../../store/offer-context';
@@ -8,6 +8,15 @@ import AuthContext from '../../store/auth-context';
 import OfferForm from './OfferForm';
 
 const PackagePage = () => {
+  let savedData = {};
+  const location = useLocation().state;
+  if (location && location.from === '/introduction') {
+    savedData.input = location.input;
+    savedData.startDate = location.startDate;
+    savedData.endDate = location.endDate;
+  }
+  console.log(location);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const packageCtx = useContext(PackageContext);
@@ -26,20 +35,32 @@ const PackagePage = () => {
     (offer) => offer.title === urlOffer
   );
 
-  const submitHandler = async (event) => {
-    event.preventDefault();
+  const submitHandler = async (inputRefs, startDate, endDate) => {
     setIsLoading(true);
 
-    console.log(event);
+    const input = {
+      date: inputRefs.date.current.value,
+      location: inputRefs.location.current.value,
+      language: inputRefs.language.current.value,
+    };
+
+    console.log(input);
 
     if (!authCtx.isLoggedIn)
       return history.push({
         pathname: '/auth',
         state: {
           from: history.location.pathname,
+          input: input,
+          startDate: startDate,
+          endDate: endDate,
         },
       });
 
+    if (!input.date || !input.location || !input.language) {
+      setIsLoading(false);
+      return alert('All fields must be filled!');
+    }
     return history.push('/profile');
   };
 
@@ -55,7 +76,11 @@ const PackagePage = () => {
           >
             {chosenOffer.title} Package
           </h1>
-          <OfferForm formHandler={submitHandler} isLoading={isLoading} />
+          <OfferForm
+            formHandler={submitHandler}
+            isLoading={isLoading}
+            savedData={savedData}
+          />
         </>
       )}
     </>

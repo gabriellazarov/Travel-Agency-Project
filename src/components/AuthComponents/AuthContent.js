@@ -6,7 +6,6 @@ import classes from './AuthContent.module.css';
 
 const AuthContent = () => {
   const location = useLocation().state;
-  console.log(location);
 
   const history = useHistory();
 
@@ -70,7 +69,16 @@ const AuthContent = () => {
 
         authCtx.login(data.idToken, data.email, expirationTime.toISOString());
 
-        if (location && location.from) return history.replace(location.from);
+        if (location && location.from)
+          return history.replace({
+            pathname: location.from,
+            state: {
+              from: history.location.pathname,
+              input: location.input,
+              startDate: location.startDate,
+              endDate: location.endDate,
+            },
+          });
         return history.replace('/offers');
       })
       .catch((err) => {

@@ -8,6 +8,13 @@ import AuthContext from '../../store/auth-context';
 import OfferForm from './OfferForm';
 
 const PackagePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const packageCtx = useContext(PackageContext);
+  const authCtx = useContext(AuthContext);
+
+  const history = useHistory();
+
   let savedData = {};
   const location = useLocation().state;
   if (location && location.from === '/introduction') {
@@ -15,14 +22,6 @@ const PackagePage = () => {
     savedData.startDate = location.startDate;
     savedData.endDate = location.endDate;
   }
-  console.log(location);
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const packageCtx = useContext(PackageContext);
-  const authCtx = useContext(AuthContext);
-
-  const history = useHistory();
 
   const urlOffer = useParams().package;
   const loadingPackages = packageCtx.packages.length > 0;
@@ -43,8 +42,6 @@ const PackagePage = () => {
       location: inputRefs.location.current.value,
       language: inputRefs.language.current.value,
     };
-
-    console.log(input);
 
     if (!authCtx.isLoggedIn)
       return history.push({

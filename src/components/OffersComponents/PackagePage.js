@@ -7,7 +7,6 @@ import AuthContext from '../../store/auth-context';
 
 import OfferForm from './OfferForm';
 
-//ADD LOGIC TO NAVIGATE AUTOMATICALLY TO LOGIN/REGISTER PAGE IF A REQUEST IS SENT AND WHEN ONE OF THE OPERATIONS IS DONE NAVIGATE AUTOMATICALLY BACK WITH SAVED INPUTS
 const PackagePage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -27,11 +26,19 @@ const PackagePage = () => {
     (offer) => offer.title === urlOffer
   );
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
-    if (!authCtx.isLoggedIn) history.push('/auth');
+    console.log(event);
+
+    if (!authCtx.isLoggedIn)
+      return history.push({
+        pathname: '/auth',
+        state: {
+          from: history.location.pathname,
+        },
+      });
 
     return history.push('/profile');
   };

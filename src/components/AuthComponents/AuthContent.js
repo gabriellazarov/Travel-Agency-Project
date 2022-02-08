@@ -1,10 +1,13 @@
 import { useContext, useRef, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import AuthContext from '../../store/auth-context';
 
 import classes from './AuthContent.module.css';
 
 const AuthContent = () => {
+  const location = useLocation().state;
+  console.log(location);
+
   const history = useHistory();
 
   const emailInputRef = useRef();
@@ -66,7 +69,9 @@ const AuthContent = () => {
         );
 
         authCtx.login(data.idToken, data.email, expirationTime.toISOString());
-        history.replace('/offers');
+
+        if (location && location.from) return history.replace(location.from);
+        return history.replace('/offers');
       })
       .catch((err) => {
         alert(err.message);

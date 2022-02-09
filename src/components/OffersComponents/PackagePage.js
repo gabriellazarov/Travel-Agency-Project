@@ -58,6 +58,24 @@ const PackagePage = () => {
       setIsLoading(false);
       return alert('All fields must be filled!');
     }
+
+    const userEndpoint = authCtx.email.split('.').join('-');
+
+    const response = await fetch(
+      `https://at-least-4-characters-long-default-rtdb.europe-west1.firebasedatabase.app/travelAgency/userBookings/${userEndpoint}.json`,
+      {
+        method: 'POST',
+        body: JSON.stringify(input),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    const data = await response;
+
+    if (!data.ok) return alert('Something went wrong!');
+
     return history.push('/profile');
   };
 

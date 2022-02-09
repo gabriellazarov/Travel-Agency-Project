@@ -4,9 +4,10 @@ import Introduction from './pages/Introduction';
 import OfferPackage from './pages/OfferPackage';
 import Offers from './pages/Offers';
 import Auth from './pages/Auth';
+import UserProfile from './pages/UserProfile';
+
 import AuthContext from './store/auth-context';
 import { useContext } from 'react';
-import UserProfile from './components/ProfileComponents/UserProfile';
 
 function App() {
   const authCtx = useContext(AuthContext);

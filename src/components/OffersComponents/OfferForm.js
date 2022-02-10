@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -40,22 +40,6 @@ const OfferForm = (props) => {
     setEndDate(end);
   };
 
-  const [guideLanguages, setGuideLanguages] = useState([]);
-  const [locations, setLocations] = useState([]);
-
-  useEffect(() => {
-    const getOptions = async () => {
-      const response = await fetch(
-        'https://at-least-4-characters-long-default-rtdb.europe-west1.firebasedatabase.app/travelAgency/packageOptions.json'
-      );
-      const data = await response.json();
-
-      setGuideLanguages(data.guideLanguages);
-      setLocations(data.locations);
-    };
-    getOptions();
-  }, []);
-
   const dateInputRef = useRef();
 
   const locationInputRef = useRef();
@@ -71,6 +55,10 @@ const OfferForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.formHandler(inputRefs, startDate, endDate);
+  };
+
+  const setLocation = (event) => {
+    props.setChosenLocation(event.target.value);
   };
 
   return (
@@ -101,14 +89,19 @@ const OfferForm = (props) => {
         </div>
         <div>
           <label htmlFor="location">Location</label>
-          <select id="location" required ref={locationInputRef}>
-            {locations.map((location) => (
+          <select
+            id="location"
+            required
+            ref={locationInputRef}
+            onChange={setLocation}
+          >
+            {props.locations.map((location) => (
               <option
-                value={location}
-                key={location}
-                selected={initialData.location === location}
+                value={location.name}
+                key={location.name}
+                selected={initialData.location === location.name}
               >
-                {location}
+                {location.name}
               </option>
             ))}
           </select>
@@ -116,7 +109,7 @@ const OfferForm = (props) => {
         <div>
           <label htmlFor="guideLanguage">Tour Guide Language</label>
           <select id="guideLanguage" required ref={languageInputRef}>
-            {guideLanguages.map((language) => (
+            {props.guideLanguages.map((language) => (
               <option
                 value={language}
                 key={language}

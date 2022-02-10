@@ -23,6 +23,14 @@ const PackagePage = () => {
     savedData.endDate = location.endDate;
   }
 
+  if (packageCtx.packages.length === 0) history.replace('/offers');
+
+  const [chosenLocation, setChosenLocation] = useState(
+    savedData.hasOwnProperty('input')
+      ? savedData.input.location
+      : packageCtx.options.locations[0].name
+  );
+
   const urlOffer = useParams().package;
   const loadingPackages = packageCtx.packages.length > 0;
 
@@ -88,7 +96,11 @@ const PackagePage = () => {
         <>
           <h1
             className={classes.header}
-            style={{ backgroundImage: `url(${chosenOffer.img_url})` }}
+            style={{
+              backgroundImage: `url(${packageCtx.getLocationImgUrl(
+                chosenLocation
+              )})`,
+            }}
           >
             {chosenOffer.title} Package
           </h1>
@@ -96,6 +108,9 @@ const PackagePage = () => {
             formHandler={submitHandler}
             isLoading={isLoading}
             savedData={savedData}
+            guideLanguages={packageCtx.options.guideLanguages}
+            locations={packageCtx.options.locations}
+            setChosenLocation={setChosenLocation}
           />
         </>
       )}

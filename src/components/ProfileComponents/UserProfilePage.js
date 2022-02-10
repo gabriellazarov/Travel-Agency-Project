@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import AuthContext from '../../store/auth-context';
+import PackageContext from '../../store/offer-context';
 
 const monthToNumber = (month) => {
   const months = [
@@ -45,6 +47,7 @@ const UserProfile = () => {
   const [bookings, setBookings] = useState([]);
 
   const authCtx = useContext(AuthContext);
+  const packageCtx = useContext(PackageContext);
 
   useEffect(() => {
     const getAndSetBookings = async () => {
@@ -72,7 +75,9 @@ const UserProfile = () => {
     getAndSetBookings();
   }, [authCtx.email]);
 
-  console.log(bookings);
+  const history = useHistory();
+  if (!packageCtx.options.hasOwnProperty('locations'))
+    history.replace('/offers');
 
   return (
     <>
@@ -80,7 +85,13 @@ const UserProfile = () => {
       <div>
         {bookings.map((booking) => (
           <div key={booking.keyId}>
-            <h2>
+            <h2
+              style={{
+                backgroundImage: `url(${packageCtx.getLocationImgUrl(
+                  booking.location
+                )})`,
+              }}
+            >
               {booking.type} trip to {booking.location}
             </h2>
             <p>{booking.date}</p>

@@ -41,6 +41,7 @@ const PackagePage = () => {
       date: inputRefs.date.current.value,
       location: inputRefs.location.current.value,
       language: inputRefs.language.current.value,
+      type: chosenOffer.title,
     };
 
     if (!authCtx.isLoggedIn)

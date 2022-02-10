@@ -47,7 +47,7 @@ const UserProfile = () => {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    const getBookings = async () => {
+    const getAndSetBookings = async () => {
       const userEndpoint = authCtx.email.split('.').join('-');
 
       const response = await fetch(
@@ -62,17 +62,32 @@ const UserProfile = () => {
         transformedData.push(data[booking]);
       }
 
+      for (let i = 0; i < transformedData.length; i++) {
+        transformedData[i].keyId = i;
+      }
+
       setBookings(transformedData.sort((a, b) => dateSorter(a.date, b.date)));
     };
 
-    getBookings();
-  }, []);
+    getAndSetBookings();
+  }, [authCtx.email]);
 
   console.log(bookings);
 
   return (
     <>
       <p>hello, {authCtx.email}</p>
+      <div>
+        {bookings.map((booking) => (
+          <div key={booking.keyId}>
+            <h2>
+              {booking.type} trip to {booking.location}
+            </h2>
+            <p>{booking.date}</p>
+            <p>Guide Language: {booking.language}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

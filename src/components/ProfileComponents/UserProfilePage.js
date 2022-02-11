@@ -47,7 +47,6 @@ const UserProfile = () => {
   const [bookings, setBookings] = useState([]);
 
   const authCtx = useContext(AuthContext);
-  const packageCtx = useContext(PackageContext);
 
   useEffect(() => {
     const getAndSetBookings = async () => {
@@ -75,10 +74,7 @@ const UserProfile = () => {
     getAndSetBookings();
   }, [authCtx.email]);
 
-  const history = useHistory();
-  if (!packageCtx.options.hasOwnProperty('locations'))
-    history.replace('/offers');
-
+  console.log(bookings);
   return (
     <>
       <p>hello, {authCtx.email}</p>
@@ -87,12 +83,10 @@ const UserProfile = () => {
           <div key={booking.keyId}>
             <h2
               style={{
-                backgroundImage: `url(${packageCtx.getLocationImgUrl(
-                  booking.location
-                )})`,
+                backgroundImage: `url(${booking.location.imgUrl})`,
               }}
             >
-              {booking.type} trip to {booking.location}
+              {booking.type} trip to {booking.location.name}
             </h2>
             <p>{booking.date}</p>
             <p>Guide Language: {booking.language}</p>

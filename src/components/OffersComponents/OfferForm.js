@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -17,6 +17,13 @@ function addDays(date, days) {
   return result;
 }
 
+const findImgUrl = (options, locationName) => {
+  const chosenLocation = options.locations.find(
+    (location) => location.name === locationName
+  );
+  return chosenLocation.imgUrl;
+};
+
 const OfferForm = (props) => {
   const initialData = {
     startDate: null,
@@ -28,9 +35,22 @@ const OfferForm = (props) => {
   if (props.savedData.hasOwnProperty('startDate')) {
     initialData.startDate = props.savedData.startDate;
     initialData.endDate = props.savedData.endDate;
-    initialData.location = props.savedData.input.location;
+    initialData.location = props.savedData.input.location.name;
     initialData.language = props.savedData.input.language;
   }
+
+  const [options, setOptions] = useState({ locations: [], guideLanguages: [] });
+
+  useEffect(() => {
+    const getOptions = async () => {
+      const response = fetch(
+        'https://at-least-4-characters-long-default-rtdb.europe-west1.firebasedatabase.app/travelAgency/packageOptions.json'
+      );
+      const data = await (await response).json();
+      setOptions(data);
+    };
+    getOptions();
+  }, []);
 
   const [startDate, setStartDate] = useState(initialData.startDate);
   const [endDate, setEndDate] = useState(initialData.endDate);
@@ -46,19 +66,28 @@ const OfferForm = (props) => {
 
   const languageInputRef = useRef();
 
-  const inputRefs = {
-    date: dateInputRef,
-    location: locationInputRef,
-    language: languageInputRef,
-  };
-
   const submitHandler = (event) => {
     event.preventDefault();
+
+    const inputRefs = {
+      date: dateInputRef,
+      location: { name: locationInputRef, imgUrl: '' },
+      language: languageInputRef,
+    };
+
+    inputRefs.location.imgUrl = findImgUrl(
+      options,
+      inputRefs.location.name.current.value
+    );
+
+    console.log(findImgUrl(options, inputRefs.location.name.current.value));
+
     props.formHandler(inputRefs, startDate, endDate);
   };
 
   const setLocation = (event) => {
-    props.setChosenLocation(event.target.value);
+    const url = findImgUrl(options, event.target.value);
+    props.setChosenLocation(url);
   };
 
   return (
@@ -95,7 +124,7 @@ const OfferForm = (props) => {
             ref={locationInputRef}
             onChange={setLocation}
           >
-            {props.locations.map((location) => (
+            {options.locations.map((location) => (
               <option
                 value={location.name}
                 key={location.name}
@@ -109,7 +138,7 @@ const OfferForm = (props) => {
         <div>
           <label htmlFor="guideLanguage">Tour Guide Language</label>
           <select id="guideLanguage" required ref={languageInputRef}>
-            {props.guideLanguages.map((language) => (
+            {options.guideLanguages.map((language) => (
               <option
                 value={language}
                 key={language}

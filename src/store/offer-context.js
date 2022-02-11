@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const PackageContext = React.createContext({
   packages: [],
-  options: { guideLanguages: [], locations: [] },
   isValidOffer: (urlOffer) => {},
-  getLocationImgUrl: (location) => {},
 });
 
 const transformPackages = (packages) => {
@@ -22,7 +20,6 @@ const transformPackages = (packages) => {
 
 export const PackageContextProvider = (props) => {
   const [packages, setPackages] = useState([]);
-  const [options, setOptions] = useState({});
 
   useEffect(() => {
     const getOffers = async () => {
@@ -34,16 +31,6 @@ export const PackageContextProvider = (props) => {
       setPackages(transformPackages(data));
     };
 
-    const getOptions = async () => {
-      const response = await fetch(
-        'https://at-least-4-characters-long-default-rtdb.europe-west1.firebasedatabase.app/travelAgency/packageOptions.json'
-      );
-      const data = await response.json();
-
-      setOptions(data);
-    };
-
-    getOptions();
     getOffers();
   }, []);
 
@@ -53,16 +40,9 @@ export const PackageContextProvider = (props) => {
     return validOffers.includes(urlOffer);
   };
 
-  const getLocationImgUrl = (location) => {
-    const selectedLocation = options.locations.find((a) => a.name === location);
-    return selectedLocation.imgUrl;
-  };
-
   const contextValue = {
     packages: packages,
-    options: options,
     isValidOffer: isValidOffer,
-    getLocationImgUrl: getLocationImgUrl,
   };
   return (
     <PackageContext.Provider value={contextValue}>

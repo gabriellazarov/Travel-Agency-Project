@@ -23,12 +23,10 @@ const PackagePage = () => {
     savedData.endDate = location.endDate;
   }
 
-  if (packageCtx.packages.length === 0) history.replace('/offers');
-
   const [chosenLocation, setChosenLocation] = useState(
     savedData.hasOwnProperty('input')
-      ? savedData.input.location
-      : packageCtx.options.locations[0].name
+      ? savedData.input.location.imgUrl
+      : 'https://i.imgur.com/TNkaE4L.jpg'
   );
 
   const urlOffer = useParams().package;
@@ -47,7 +45,10 @@ const PackagePage = () => {
 
     const input = {
       date: inputRefs.date.current.value,
-      location: inputRefs.location.current.value,
+      location: {
+        name: inputRefs.location.name.current.value,
+        imgUrl: inputRefs.location.imgUrl,
+      },
       language: inputRefs.language.current.value,
       type: chosenOffer.title,
     };
@@ -63,7 +64,7 @@ const PackagePage = () => {
         },
       });
 
-    if (!input.date || !input.location || !input.language) {
+    if (!input.date || !input.location.name || !input.language) {
       setIsLoading(false);
       return alert('All fields must be filled!');
     }
@@ -97,9 +98,7 @@ const PackagePage = () => {
           <h1
             className={classes.header}
             style={{
-              backgroundImage: `url(${packageCtx.getLocationImgUrl(
-                chosenLocation
-              )})`,
+              backgroundImage: `url(${chosenLocation})`,
             }}
           >
             {chosenOffer.title} Package
@@ -108,8 +107,6 @@ const PackagePage = () => {
             formHandler={submitHandler}
             isLoading={isLoading}
             savedData={savedData}
-            guideLanguages={packageCtx.options.guideLanguages}
-            locations={packageCtx.options.locations}
             setChosenLocation={setChosenLocation}
           />
         </>

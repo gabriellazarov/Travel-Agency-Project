@@ -91,8 +91,47 @@ const OfferForm = (props) => {
   };
 
   return (
-    <section>
+    <section className={classes.container}>
       <form onSubmit={submitHandler}>
+        <ul>
+          <li>
+            <div>
+              <label htmlFor="location">Location: </label>
+              <select
+                id="location"
+                required
+                ref={locationInputRef}
+                onChange={setLocation}
+              >
+                {options.locations.map((location) => (
+                  <option
+                    value={location.name}
+                    key={location.name}
+                    selected={initialData.location === location.name}
+                  >
+                    {location.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </li>
+          <li>
+            <div>
+              <label htmlFor="guideLanguage">Tour Guide Language: </label>
+              <select id="guideLanguage" required ref={languageInputRef}>
+                {options.guideLanguages.map((language) => (
+                  <option
+                    value={language}
+                    key={language}
+                    selected={initialData.language === language}
+                  >
+                    {language}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </li>
+        </ul>
         <div>
           Choose a Date Range
           <ReactDatePicker
@@ -116,40 +155,7 @@ const OfferForm = (props) => {
             ref={dateInputRef}
           />
         </div>
-        <div>
-          <label htmlFor="location">Location</label>
-          <select
-            id="location"
-            required
-            ref={locationInputRef}
-            onChange={setLocation}
-          >
-            {options.locations.map((location) => (
-              <option
-                value={location.name}
-                key={location.name}
-                selected={initialData.location === location.name}
-              >
-                {location.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="guideLanguage">Tour Guide Language</label>
-          <select id="guideLanguage" required ref={languageInputRef}>
-            {options.guideLanguages.map((language) => (
-              <option
-                value={language}
-                key={language}
-                selected={initialData.language === language}
-              >
-                {language}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
+        <div className={classes.btn}>
           {props.isLoading ? <p>Sending request...</p> : <button>Book</button>}
         </div>
       </form>

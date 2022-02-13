@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 import AuthContext from '../../store/auth-context';
-import PackageContext from '../../store/offer-context';
 
 const monthToNumber = (month) => {
   const months = [

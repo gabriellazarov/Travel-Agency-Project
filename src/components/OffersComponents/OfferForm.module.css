@@ -1,0 +1,49 @@
+.container {
+  margin: 3rem auto;
+  max-width: 65vh;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: rgba(174, 217, 235, 0.267);
+  padding: 2vh;
+  text-align: center;
+
+  margin-top: 5vh;
+}
+
+.container li {
+  display: inline-block;
+  margin: 1vh;
+  font-size: 2vh;
+}
+.container select {
+  text-decoration: none;
+  font-size: 2vh;
+  cursor: pointer;
+}
+.container input {
+  margin: 1px;
+  font-size: 2vh;
+}
+
+.btn button {
+  display: inline-block;
+  border: none;
+  padding: 1vh;
+  margin-top: 1vh;
+
+  background: rgb(0, 105, 190);
+  color: rgb(255, 255, 255);
+
+  text-decoration: none;
+  font-size: 4vh;
+
+  cursor: pointer;
+  text-align: center;
+
+  border-radius: 1vh;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn button:hover {
+  background: rgb(40, 142, 226);
+}

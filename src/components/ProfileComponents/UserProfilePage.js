@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../store/auth-context';
 
+import classes from './UserProfilePage.module.css';
+
 const monthToNumber = (month) => {
   const months = [
     'Jan',
@@ -76,18 +78,20 @@ const UserProfile = () => {
   return (
     <>
       <p>hello, {authCtx.email}</p>
-      <div>
+      <div className={classes.bookingContainer}>
         {bookings.map((booking) => (
-          <div key={booking.keyId}>
-            <h2
-              style={{
-                backgroundImage: `url(${booking.location.imgUrl})`,
-              }}
-            >
+          <div
+            key={booking.keyId}
+            style={{
+              backgroundImage: `url(${booking.location.imgUrl})`,
+            }}
+            className={classes.booking}
+          >
+            <h2>
               {booking.type} trip to {booking.location.name}
             </h2>
-            <p>{booking.date}</p>
-            <p>Guide Language: {booking.language}</p>
+            <p className={classes.date}>{booking.date}</p>
+            <p className={classes.guide}>Guide Language: {booking.language}</p>
           </div>
         ))}
       </div>

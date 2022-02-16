@@ -1,0 +1,56 @@
+.bookingContainer {
+  position: sticky;
+
+  margin-left: 85vh;
+  margin-top: -3vh;
+  width: 91vh;
+  height: 87vh;
+
+  border: 0.3vh solid black;
+  border-radius: 0.5vh;
+
+  padding: 0.3vh;
+
+  overflow: hidden;
+}
+.bookingContainer:hover {
+  overflow-y: overlay;
+}
+
+.booking {
+  width: 90vh;
+  height: 25vh;
+
+  margin-bottom: 0.4vh;
+
+  border: 0.2vh solid black;
+  border-radius: 0.5vh;
+
+  color: white;
+
+  background-size: 90vh 30vh;
+}
+
+.booking h2 {
+  text-align: center;
+  font-size: 4vh;
+  text-shadow: 0.4vh 0.4vh #000000d3;
+}
+.booking p {
+  font-size: 3vh;
+  text-shadow: 0.3vh 0.3vh #000000d3;
+}
+
+.date {
+  position: relative;
+
+  top: 8vh;
+  left: 3vh;
+}
+
+.guide {
+  position: relative;
+
+  top: 1vh;
+  left: 55vh;
+}

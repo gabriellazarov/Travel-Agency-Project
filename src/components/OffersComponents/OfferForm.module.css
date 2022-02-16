@@ -1,13 +1,13 @@
 .container {
   margin: 3rem auto;
   max-width: 65vh;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 6px;
   background-color: rgba(174, 217, 235, 0.267);
   padding: 2vh;
   text-align: center;
 
-  margin-top: 5vh;
+  margin-top: -3vh;
 }
 
 .container li {
@@ -35,7 +35,7 @@
   color: rgb(255, 255, 255);
 
   text-decoration: none;
-  font-size: 4vh;
+  font-size: 3vh;
 
   cursor: pointer;
   text-align: center;
